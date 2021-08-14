@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import TopBar from "./Components/TopBar";
+import './App.css'
+import {createTheme, MuiThemeProvider} from "@material-ui/core";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const theme = createTheme({
+        typography: {
+            fontFamily: [
+                "'Noto Sans KR'",
+                "sans-serif"
+            ].join(','),
+        },
+        shadows: ["none"],
+        palette: {
+            primary: {
+                main: 'rgba(60, 100, 177, 0.06)',
+            },
+            secondary: {
+                main: 'rgba(60, 100, 177)',
+            },
+
+        },
+    })
+    return (
+        <div>
+            <MuiThemeProvider theme={theme}>
+                <TopBar/>
+
+            </MuiThemeProvider>
+        </div>
+
+    );
 }
 
 export default App;
