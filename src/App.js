@@ -1,4 +1,4 @@
-import TopBar from "./Components/TopBar";
+import TopBar from "./components/TopBar";
 import './App.css'
 import {createTheme, MuiThemeProvider} from "@material-ui/core";
 

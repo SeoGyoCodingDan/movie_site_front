@@ -1,6 +1,7 @@
 import React from 'react';
-import {alpha, AppBar, InputBase, makeStyles, Toolbar, Typography} from "@material-ui/core";
+import {alpha, AppBar, Button, InputBase, makeStyles, Toolbar, Typography} from "@material-ui/core";
 import SearchIcon from '@material-ui/icons/Search';
+import {getShowingMovie} from "../apis/Api";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -53,6 +54,15 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
+
+const clickHandle = async () => {
+    await getShowingMovie.api(1, 10).then(res => {
+        console.log(res.data);
+    }).catch( e => {
+        console.log(e.response);
+    })
+}
+
 const TopBar = () => {
     const classes = useStyles();
     return (
@@ -61,6 +71,7 @@ const TopBar = () => {
                 <Typography className={classes.title} color={'secondary'} variant="h6" noWrap>
                     MovieInfo
                 </Typography>
+                <Button onClick={clickHandle}>asda</Button>
                 <div className={classes.search}>
                     <div className={classes.searchIcon}>
                         <SearchIcon color={'secondary'} />
