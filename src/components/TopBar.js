@@ -2,6 +2,7 @@ import React from 'react';
 import {alpha, AppBar, Button, InputBase, makeStyles, Toolbar, Typography} from "@material-ui/core";
 import SearchIcon from '@material-ui/icons/Search';
 import {getShowingMovie} from "../apis/Api";
+import {Link} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     root: {
@@ -17,9 +18,9 @@ const useStyles = makeStyles((theme) => ({
     search: {
         position: 'relative',
         borderRadius: theme.shape.borderRadius,
-        backgroundColor: alpha(theme.palette.primary.main, 0.06),
+        backgroundColor: alpha(theme.palette.secondary.main, 0.01),
         '&:hover': {
-            backgroundColor: alpha(theme.palette.primary.main, 0.1),
+            backgroundColor: alpha(theme.palette.secondary.main, 0.1),
         },
         marginLeft: 0,
         width: '100%',
@@ -68,9 +69,12 @@ const TopBar = () => {
     return (
         <AppBar color={"primary"} position="static">
             <Toolbar variant="dense">
-                <Typography className={classes.title} color={'secondary'} variant="h6" noWrap>
-                    MovieInfo
-                </Typography>
+                <Link to={'/'} className={classes.title}>
+                    <Typography  color={'secondary'} variant="h6" noWrap>
+                        MovieInfo
+                    </Typography>
+                </Link>
+
                 <Button onClick={clickHandle}>asda</Button>
                 <div className={classes.search}>
                     <div className={classes.searchIcon}>
