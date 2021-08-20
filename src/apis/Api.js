@@ -13,3 +13,9 @@ export const getShowingMovie = {
             }
         })
 }
+
+
+export const getMovieDetail = {
+    api: async (movieId) =>
+        await axios.get('/movie/detail/' + movieId)
+}

@@ -1,7 +1,8 @@
 import TopBar from "./components/TopBar";
 import './App.css'
 import {createTheme, CssBaseline, MuiThemeProvider} from "@material-ui/core";
-import {BrowserRouter} from "react-router-dom";
+import {BrowserRouter, Route, Switch} from "react-router-dom";
+import MovieDetailContainer from "./containers/MovieDetailContainer";
 
 function App() {
     const theme = createTheme({
@@ -13,6 +14,10 @@ function App() {
                     },
                 },
             },
+            MuiCircularProgress: {
+                'width': '500px'
+
+            }
         },
         typography: {
             fontFamily: [
@@ -34,8 +39,11 @@ function App() {
     return (
         <MuiThemeProvider theme={theme}>
             <CssBaseline/>
+
             <BrowserRouter>
-                <TopBar/>
+                <Switch>
+                    <Route path='/movie/:movieId' exact component={MovieDetailContainer}/>
+                </Switch>
 
             </BrowserRouter>
 
