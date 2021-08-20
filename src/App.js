@@ -1,9 +1,19 @@
 import TopBar from "./components/TopBar";
 import './App.css'
-import {createTheme, MuiThemeProvider} from "@material-ui/core";
+import {createTheme, CssBaseline, MuiThemeProvider} from "@material-ui/core";
+import {BrowserRouter} from "react-router-dom";
 
 function App() {
     const theme = createTheme({
+        overrides: {
+            MuiCssBaseline: {
+                '@global': {
+                    'a': {
+                        textDecoration: 'none',
+                    },
+                },
+            },
+        },
         typography: {
             fontFamily: [
                 "'Noto Sans KR'",
@@ -13,22 +23,23 @@ function App() {
         shadows: ["none"],
         palette: {
             primary: {
-                main: 'rgba(60, 100, 177, 0.06)',
+                main: '#F3F6FA',
             },
             secondary: {
-                main: 'rgba(60, 100, 177)',
+                main: '#3C64B1',
             },
 
         },
     })
     return (
-        <div>
-            <MuiThemeProvider theme={theme}>
+        <MuiThemeProvider theme={theme}>
+            <CssBaseline/>
+            <BrowserRouter>
                 <TopBar/>
 
-            </MuiThemeProvider>
-        </div>
+            </BrowserRouter>
 
+        </MuiThemeProvider>
     );
 }
 
