@@ -9,6 +9,7 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
     },
     title: {
+        marginLeft: 160,
         flexGrow: 1,
         display: 'none',
         [theme.breakpoints.up('sm')]: {
@@ -23,6 +24,7 @@ const useStyles = makeStyles((theme) => ({
             backgroundColor: alpha(theme.palette.secondary.main, 0.1),
         },
         marginLeft: 0,
+        marginRight: 160,
         width: '100%',
         [theme.breakpoints.up('sm')]: {
             marginLeft: theme.spacing(1),
