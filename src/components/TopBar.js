@@ -1,7 +1,7 @@
 import React from 'react';
 import {alpha, AppBar, Button, InputBase, makeStyles, Toolbar, Typography} from "@material-ui/core";
 import SearchIcon from '@material-ui/icons/Search';
-import {getShowingMovie} from "../apis/Api";
+import {getShowingMovie} from "../apis/MovieApi";
 import {Link} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({

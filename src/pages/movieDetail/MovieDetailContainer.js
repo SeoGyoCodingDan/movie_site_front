@@ -1,8 +1,8 @@
 import React, {useEffect, useState} from 'react';
-import {getMovieDetail} from "../apis/Api";
-import TopBar from "../components/TopBar";
-import MovieDetailInfo from "../components/MovieDetailInfo";
-import Menubar from "../components/Menubar";
+import {getMovieDetail} from "../../apis/MovieApi";
+import TopBar from "../../components/TopBar";
+import MovieDetailInfo from "./MovieDetailInfo";
+import Menubar from "../../components/Menubar";
 import {Grid} from "@material-ui/core";
 
 const MovieDetailContainer = (props) => {

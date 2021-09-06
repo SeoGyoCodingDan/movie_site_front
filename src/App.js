@@ -1,8 +1,6 @@
-import TopBar from "./components/TopBar";
 import './App.css'
 import {createTheme, CssBaseline, MuiThemeProvider} from "@material-ui/core";
-import {BrowserRouter, Route, Switch} from "react-router-dom";
-import MovieDetailContainer from "./containers/MovieDetailContainer";
+import MainRouter from "./routes/MainRouter";
 
 function App() {
     const theme = createTheme({
@@ -39,14 +37,7 @@ function App() {
     return (
         <MuiThemeProvider theme={theme}>
             <CssBaseline/>
-
-            <BrowserRouter>
-                <Switch>
-                    <Route path='/movie/:movieId' exact component={MovieDetailContainer}/>
-                </Switch>
-
-            </BrowserRouter>
-
+            <MainRouter/>
         </MuiThemeProvider>
     );
 }
