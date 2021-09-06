@@ -4,6 +4,7 @@ import TopBar from "../../components/TopBar";
 import MovieDetailInfo from "./MovieDetailInfo";
 import Menubar from "../../components/Menubar";
 import {Grid} from "@material-ui/core";
+import BottomTab from "./BottomTab";
 
 const MovieDetailContainer = (props) => {
     const [loading, setLoading] = useState(true);
@@ -23,19 +24,24 @@ const MovieDetailContainer = (props) => {
     return (
         <div>
             <TopBar/>
-            <Grid container justifyContent="center" >
+            <Grid container justifyContent="center">
                 <Grid item xs={3}>
                     <Menubar/>
                 </Grid>
 
-                <Grid item xs={9}>
-                {!loading ? (
-                    <MovieDetailInfo movieData={movieData}/>
-                ) : null}
+                <Grid item xs={8}>
+                    {!loading ? (
+                        <>
+                            <MovieDetailInfo movieData={movieData}/>
+                            <BottomTab/>
+                        </>
+                    ) : null}
                 </Grid>
 
-            </Grid>
+                <Grid item xs={1}/>
 
+
+                </Grid>
 
 
         </div>
