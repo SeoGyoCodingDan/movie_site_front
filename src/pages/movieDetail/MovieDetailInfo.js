@@ -2,7 +2,7 @@ import React from 'react';
 import {Grid, makeStyles, Paper, Typography} from "@material-ui/core";
 
 const MovieDetailInfo = ({movieData}) => {
-    const useStyles = makeStyles((theme) => ({
+    const useStyles = makeStyles(() => ({
         root: {
             width: '80%',
             flexGrow: 1,
