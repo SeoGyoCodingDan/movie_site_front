@@ -1,21 +1,23 @@
 import React from 'react';
 import {Grid, makeStyles, Paper, Typography} from "@material-ui/core";
 
+const useStyles = makeStyles(() => ({
+    root: {
+        width: '80%',
+        flexGrow: 1,
+    },
+
+    paper: {
+        width: '280px'
+    },
+}));
 const MovieDetailInfo = ({movieData}) => {
-    const useStyles = makeStyles(() => ({
-        root: {
-            width: '80%',
-            flexGrow: 1,
-        },
-        paper: {
-           width: '300px'
-        },
-    }));
+
     const classes = useStyles();
 
     return (
         <div>
-            <Grid container spacing={3} justifyContent="center" direction="row-reverse">
+            <Grid container spacing={3} justifyContent="center" direction="row-reverse" style={{marginTop: 30}}>
 
                 <Grid item xs={8}>
                     <Paper className={classes.paper}>
@@ -26,26 +28,45 @@ const MovieDetailInfo = ({movieData}) => {
 
 
                 <Grid item xs={4}>
-                    <Typography variant="h6">
-                        영화제목 : {movieData.movienm}
-                    </Typography>
-                    <Typography variant="h6">
-                        개봉일 : {movieData.opendt}
-                    </Typography>
-                    <Typography variant="h6">
-                        상태 : {movieData.prdtstatnm}
-                    </Typography>
-                    <Typography variant="h6">
-                        제작년도 : {movieData.prdtyear}
-                    </Typography>
-                    <Typography variant="h6">
-                        제작국가 : {movieData.repnationnm}
-                    </Typography>
+                    <Grid container>
+                        <Grid item xs={5} >
+                            <Typography variant="h5" style={{fontWeight: 600}}>
+                                영화제목 :
+                            </Typography>
+                            <Typography variant="h5" style={{fontWeight: 600}}>
+                                개봉일 :
+                            </Typography>
+                            <Typography variant="h5" style={{fontWeight: 600}}>
+                                상태 :
+                            </Typography>
+                            <Typography variant="h5" style={{fontWeight: 600}}>
+                                제작년도 :
+                            </Typography>
+                            <Typography variant="h5" style={{fontWeight: 600}}>
+                                제작국가 :
+                            </Typography>
+                        </Grid>
+                        <Grid item xs={7}>
+                            <Typography variant="h5">
+                                {movieData.movienm}
+                            </Typography>
+                            <Typography variant="h5">
+                                {movieData.opendt}
+                            </Typography>
+                            <Typography variant="h5">
+                                {movieData.prdtstatnm}
+                            </Typography>
+                            <Typography variant="h5">
+                                {movieData.prdtyear}
+                            </Typography>
+                            <Typography variant="h5">
+                                {movieData.repnationnm}
+                            </Typography>
+                        </Grid>
+                    </Grid>
+
                 </Grid>
-
             </Grid>
-
-
 
         </div>
     );
