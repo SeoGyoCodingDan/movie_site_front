@@ -1,6 +1,7 @@
 import './App.css'
 import {createTheme, CssBaseline, MuiThemeProvider} from "@material-ui/core";
 import MainRouter from "./routes/MainRouter";
+import {QueryClient, QueryClientProvider} from "react-query";
 
 function App() {
     const theme = createTheme({
@@ -34,11 +35,15 @@ function App() {
 
         },
     })
+    const queryClient = new QueryClient();
     return (
-        <MuiThemeProvider theme={theme}>
-            <CssBaseline/>
-            <MainRouter/>
-        </MuiThemeProvider>
+        <QueryClientProvider client={queryClient}>
+            <MuiThemeProvider theme={theme}>
+                <CssBaseline/>
+                <MainRouter/>
+            </MuiThemeProvider>
+        </QueryClientProvider>
+      
     );
 }
 

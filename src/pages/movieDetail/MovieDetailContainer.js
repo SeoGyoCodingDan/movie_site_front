@@ -4,7 +4,9 @@ import TopBar from "../../components/TopBar";
 import MovieDetailInfo from "./MovieDetailInfo";
 import Menubar from "../../components/Menubar";
 import {Grid} from "@material-ui/core";
-import BottomTab from "./BottomTab";
+import BottomTab from "./components/BottomTab";
+import {useQuery} from "react-query";
+import {getPeopleByMovieId} from "../../apis/PeopleApi";
 
 const MovieDetailContainer = (props) => {
     const [loading, setLoading] = useState(true);
@@ -14,12 +16,14 @@ const MovieDetailContainer = (props) => {
         setLoading(true)
         const movieId = props.match.params['movieId']
         getMovieDetail.api(movieId).then(res => {
-            setMovieData(res.data)
-            console.log(res.data)
+            setMovieData(res.data);
             setLoading(false);
         })
     }, [props.match.params])
 
+    const peopleList = useQuery(['peopleList'],
+        () => getPeopleByMovieId.api(props.match.params['movieId']),
+        {keepPreviousData: true})
 
     return (
         <div>
@@ -33,7 +37,7 @@ const MovieDetailContainer = (props) => {
                     {!loading ? (
                         <>
                             <MovieDetailInfo movieData={movieData}/>
-                            <BottomTab/>
+                            <BottomTab peopleList={peopleList.data}/>
                         </>
                     ) : null}
                 </Grid>
@@ -41,7 +45,7 @@ const MovieDetailContainer = (props) => {
                 <Grid item xs={1}/>
 
 
-                </Grid>
+            </Grid>
 
 
         </div>

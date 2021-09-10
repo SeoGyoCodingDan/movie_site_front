@@ -7,6 +7,7 @@ import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
+import PeopleList from "./PeopleList";
 
 function TabPanel(props) {
     const { children, value, index, ...other } = props;
@@ -49,7 +50,7 @@ const useStyles = makeStyles((theme) => ({
     },
 }));
 
-export default function BottomTab() {
+export default function BottomTab(props) {
     const classes = useStyles();
     const theme = useTheme();
     const [value, setValue] = React.useState(0);
@@ -84,7 +85,7 @@ export default function BottomTab() {
                 onChangeIndex={handleChangeIndex}
             >
                 <TabPanel value={value} index={0} dir={theme.direction}>
-                    Item One
+                    <PeopleList actorList={props.peopleList?.data.results.filter(people => people['reprolenm'] === '배우')}/>
                 </TabPanel>
                 <TabPanel value={value} index={1} dir={theme.direction}>
                     Item Two
