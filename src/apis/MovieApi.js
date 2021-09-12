@@ -28,3 +28,15 @@ export const getMovieRanking = {
             }
         })
 }
+
+
+export const findMovieListByName = {
+    api: async (page, page_size, keyword) =>
+        await axios.get('/movie/search/', {
+            params: {
+                page: page,
+                page_size: page_size,
+                search_info: keyword,
+            }
+        })
+}

@@ -1,15 +1,18 @@
-import React from 'react';
-import {alpha, AppBar, Button, InputBase, makeStyles, Toolbar, Typography} from "@material-ui/core";
+import React, {useState} from 'react';
+import {alpha, AppBar, InputBase, makeStyles, Toolbar, Typography} from "@material-ui/core";
 import SearchIcon from '@material-ui/icons/Search';
-import {getShowingMovie} from "../apis/MovieApi";
-import {Link} from "react-router-dom";
+import {useHistory} from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
     root: {
         flexGrow: 1,
     },
     title: {
+        cursor: 'pointer',
         marginLeft: 160,
+
+    },
+    whiteSpace:{
         flexGrow: 1,
         display: 'none',
         [theme.breakpoints.up('sm')]: {
@@ -35,10 +38,11 @@ const useStyles = makeStyles((theme) => ({
         padding: theme.spacing(0, 2),
         height: '100%',
         position: 'absolute',
-        pointerEvents: 'none',
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'center',
+        zIndex: '3',
+        cursor:'pointer',
     },
     inputRoot: {
         color: theme.palette.secondary.main,
@@ -58,29 +62,35 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const clickHandle = async () => {
-    await getShowingMovie.api(1, 10).then(res => {
-        console.log(res.data);
-    }).catch( e => {
-        console.log(e.response);
-    })
-}
-
 const TopBar = () => {
     const classes = useStyles();
+    const [keyword, setKeyword] = useState('');
+    const history = useHistory();
+
+    const handleSearch = () => {
+        history.push('/search/' + keyword);
+    }
+
+    const handleKeyword = (e) => {
+        setKeyword(e.target.value);
+    }
+
     return (
         <AppBar color={"primary"} position="static">
             <Toolbar variant="dense">
-                <Link to={'/'} className={classes.title}>
-                    <Typography  color={'secondary'} variant="h6" noWrap>
-                        MovieInfo
-                    </Typography>
-                </Link>
+                <Typography className={classes.title} color={'secondary'} variant="h6" noWrap onClick={() => {
+                    console.log('메인 클릭')
+                    history.push('/')
+                }}>
+                    MovieInfo
+                </Typography>
+                <div  className={classes.whiteSpace}>
 
-                <Button onClick={clickHandle}>asda</Button>
+                </div>
+
                 <div className={classes.search}>
                     <div className={classes.searchIcon}>
-                        <SearchIcon color={'secondary'} />
+                        <SearchIcon color={'secondary'} onClick={handleSearch}/>
                     </div>
                     <InputBase
                         placeholder="Search…"
@@ -88,7 +98,9 @@ const TopBar = () => {
                             root: classes.inputRoot,
                             input: classes.inputInput,
                         }}
-                        inputProps={{ 'aria-label': 'search' }}
+                        inputProps={{'aria-label': 'search'}}
+                        value={keyword}
+                        onChange={handleKeyword}
                     />
                 </div>
             </Toolbar>
