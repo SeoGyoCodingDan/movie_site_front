@@ -62,9 +62,9 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 
-const TopBar = () => {
+const TopBar = (props) => {
     const classes = useStyles();
-    const [keyword, setKeyword] = useState('');
+    const [keyword, setKeyword] = useState(props.keyword ? props.keyword : '');
     const history = useHistory();
 
     const handleSearch = () => {
@@ -73,6 +73,12 @@ const TopBar = () => {
 
     const handleKeyword = (e) => {
         setKeyword(e.target.value);
+    }
+
+    const handlePressEnter = (e) => {
+        if(e.key === 'Enter') {
+            history.push('/search/' + keyword);
+        }
     }
 
     return (
@@ -100,6 +106,7 @@ const TopBar = () => {
                         }}
                         inputProps={{'aria-label': 'search'}}
                         value={keyword}
+                        onKeyPress={handlePressEnter}
                         onChange={handleKeyword}
                     />
                 </div>
