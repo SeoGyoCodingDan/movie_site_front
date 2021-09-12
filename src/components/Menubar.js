@@ -4,8 +4,9 @@ import {makeStyles, MenuItem, MenuList, Paper, Typography} from "@material-ui/co
 const Menubar = () => {
     const useStyles = makeStyles((theme) => ({
         root: {
-            marginLeft: 160,
-            position: 'absolute',
+            marginLeft: '160px',
+            // position: ,
+            width: '160px',
             height: '100%',
             background: '#F3F3F3',
         },
