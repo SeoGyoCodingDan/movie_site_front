@@ -1,6 +1,5 @@
 import React from 'react';
 import {Grid, makeStyles, Paper, Typography} from "@material-ui/core";
-
 const useStyles = makeStyles(() => ({
     root: {
         width: '80%',
@@ -12,8 +11,9 @@ const useStyles = makeStyles(() => ({
     },
 }));
 const MovieDetailInfo = ({movieData}) => {
-
+    const onErrorImg = require('../../../assets/defaultPoster.png').default;
     const classes = useStyles();
+
 
     return (
         <div>
@@ -22,7 +22,7 @@ const MovieDetailInfo = ({movieData}) => {
                 <Grid item xs={6}>
                     <Paper className={classes.paper}>
                         <img style={{width: '100%'}} src={movieData.posterurl}
-                             alt={'영화포스터'}/>
+                             onError={e => {e.target.src = onErrorImg}} alt={'영화포스터'}/>
                     </Paper>
                 </Grid>
 

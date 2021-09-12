@@ -2,11 +2,11 @@ import axios from "./axios";
 
 
 export const getShowingMovie = {
-    api: async (pageNum, pageSize) =>
+    api: async (page, page_size) =>
         await axios.get('/movie/showing', {
             params: {
-                page: pageNum,
-                page_size: pageSize,
+                page: page,
+                page_size: page_size,
             }
         })
 }
@@ -15,4 +15,16 @@ export const getShowingMovie = {
 export const getMovieDetail = {
     api: async (movieId) =>
         await axios.get('/movie/detail/' + movieId)
+}
+
+
+export const getMovieRanking = {
+    api: async (page, page_size, genre) =>
+        await axios.get('/movie/ranking/', {
+            params: {
+                page: page,
+                page_size: page_size,
+                genre: genre,
+            }
+        })
 }
