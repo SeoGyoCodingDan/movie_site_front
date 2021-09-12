@@ -7,7 +7,7 @@ const Menubar = () => {
             marginLeft: '160px',
             // position: ,
             width: '160px',
-            height: 'max(100vh, 100%)',
+            height: '100%',
             background: '#F3F3F3',
         },
         menuItem: {

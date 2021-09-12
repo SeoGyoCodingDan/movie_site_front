@@ -2,6 +2,7 @@ import './App.css'
 import {createTheme, CssBaseline, MuiThemeProvider} from "@material-ui/core";
 import MainRouter from "./routes/MainRouter";
 import {QueryClient, QueryClientProvider} from "react-query";
+import Footer from "./components/Footer";
 
 function App() {
     const theme = createTheme({
@@ -41,6 +42,7 @@ function App() {
             <MuiThemeProvider theme={theme}>
                 <CssBaseline/>
                 <MainRouter/>
+                <Footer/>
             </MuiThemeProvider>
         </QueryClientProvider>
       

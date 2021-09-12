@@ -15,7 +15,6 @@ const MovieDetailInfo = ({movieData}) => {
     const classes = useStyles();
 
     return (
-        <div>
             <Grid container spacing={3} justifyContent="center" direction="row-reverse" style={{marginTop: 30}}>
 
                 <Grid item xs={6}>
@@ -66,8 +65,6 @@ const MovieDetailInfo = ({movieData}) => {
 
                 </Grid>
             </Grid>
-
-        </div>
     );
 };
 

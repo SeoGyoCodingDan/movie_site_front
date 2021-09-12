@@ -7,6 +7,7 @@ import {Grid} from "@material-ui/core";
 import BottomTab from "./components/BottomTab";
 import {useQuery} from "react-query";
 import {getPeopleByMovieId} from "../../apis/PeopleApi";
+import {GridContainer} from "../../components/GridContainer";
 
 const MovieDetailContainer = (props) => {
     const [loading, setLoading] = useState(true);
@@ -28,7 +29,7 @@ const MovieDetailContainer = (props) => {
     return (
         <div>
             <TopBar/>
-            <Grid container justifyContent="center">
+            <GridContainer container justifyContent="center">
                 <Grid item xs={3}>
                     <Menubar/>
                 </Grid>
@@ -45,7 +46,7 @@ const MovieDetailContainer = (props) => {
                 <Grid item xs={1}/>
 
 
-            </Grid>
+            </GridContainer>
 
 
         </div>
