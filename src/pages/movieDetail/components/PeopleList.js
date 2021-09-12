@@ -5,6 +5,7 @@ const PeopleList = (props) => {
     const useStyles = makeStyles((theme) => ({
         root: {
             minWidth: 275,
+            height: '100%',
             background: theme.palette.primary.main
         },
         bullet: {
