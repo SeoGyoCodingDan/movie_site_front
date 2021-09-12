@@ -19,6 +19,7 @@ const MovieCardList = ({backgroundColor, movieList}) => {
                         backgroundColor: '#E0E0E0',
                         textAlign: 'center',
                         height: '280px',
+                        cursor:'pointer',
                     }}
                     onClick={() => history.push('/movie/' + movie.moviecd)}>
                         <CardContent>
