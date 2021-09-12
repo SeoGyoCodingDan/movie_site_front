@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react';
 import {getMovieDetail} from "../../apis/MovieApi";
 import TopBar from "../../components/TopBar";
-import MovieDetailInfo from "./MovieDetailInfo";
+import MovieDetailInfo from "./components/MovieDetailInfo";
 import Menubar from "../../components/Menubar";
 import {Grid} from "@material-ui/core";
 import BottomTab from "./components/BottomTab";
