@@ -14,7 +14,6 @@ const MovieDetailInfo = ({movieData}) => {
     const onErrorImg = require('../../../assets/defaultPoster.png').default;
     const classes = useStyles();
 
-
     return (
         <div>
             <Grid container spacing={3} justifyContent="center" direction="row-reverse" style={{marginTop: 30}}>
@@ -48,19 +47,19 @@ const MovieDetailInfo = ({movieData}) => {
                         </Grid>
                         <Grid item xs={7}>
                             <Typography variant="h5">
-                                {movieData.movienm}
+                                {movieData.movienm ? movieData.movienm : '미상'}
                             </Typography>
                             <Typography variant="h5">
-                                {movieData.opendt}
+                                {movieData.opendt ? movieData.opendt : '미상'}
                             </Typography>
                             <Typography variant="h5">
-                                {movieData.prdtstatnm}
+                                {movieData.prdtstatnm ? movieData.prdtstatnm : '미상'}
                             </Typography>
                             <Typography variant="h5">
-                                {movieData.prdtyear}
+                                {movieData.prdtyear ? movieData.prdtyear : '미상'}
                             </Typography>
                             <Typography variant="h5">
-                                {movieData.repnationnm}
+                                {movieData.repnationnm ? movieData.repnationnm : '미상'}
                             </Typography>
                         </Grid>
                     </Grid>
