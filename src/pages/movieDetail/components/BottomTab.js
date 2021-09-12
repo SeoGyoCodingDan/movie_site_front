@@ -88,10 +88,10 @@ export default function BottomTab(props) {
                     <PeopleList actorList={props.peopleList?.data.results.filter(people => people['reprolenm'] === '배우')}/>
                 </TabPanel>
                 <TabPanel value={value} index={1} dir={theme.direction}>
-                    Item Two
+                    <PeopleList actorList={props.peopleList?.data.results.filter(people => people['reprolenm'] !== '배우')}/>
                 </TabPanel>
                 <TabPanel value={value} index={2} dir={theme.direction}>
-                    Item Three
+
                 </TabPanel>
             </SwipeableViews>
         </div>

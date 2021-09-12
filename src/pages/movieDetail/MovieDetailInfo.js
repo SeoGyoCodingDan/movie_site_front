@@ -19,7 +19,7 @@ const MovieDetailInfo = ({movieData}) => {
         <div>
             <Grid container spacing={3} justifyContent="center" direction="row-reverse" style={{marginTop: 30}}>
 
-                <Grid item xs={8}>
+                <Grid item xs={6}>
                     <Paper className={classes.paper}>
                         <img style={{width: '100%'}} src={movieData.posterurl}
                              alt={'영화포스터'}/>
@@ -27,7 +27,7 @@ const MovieDetailInfo = ({movieData}) => {
                 </Grid>
 
 
-                <Grid item xs={4}>
+                <Grid item xs={6}>
                     <Grid container>
                         <Grid item xs={5} >
                             <Typography variant="h5" style={{fontWeight: 600}}>
