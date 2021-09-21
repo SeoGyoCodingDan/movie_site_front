@@ -12,7 +12,7 @@ const MovieCardList = ({backgroundColor, movieList, inViewRef}) => {
         <Grid container spacing={3} style={{backgroundColor: backgroundColor, marginTop: '20px'}}>
             {movieList?.map((movie, i) => (
                 <Grid item xs={3} ref={movieList.length - 1 === i ? (inViewRef ?? undefined) : undefined} key={i}>
-                    <Card item style={{
+                    <Card style={{
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
