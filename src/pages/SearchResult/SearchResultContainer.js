@@ -11,8 +11,7 @@ import {useInView} from "react-intersection-observer";
 const SearchResultContainer = (props) => {
     const {ref, inView} = useInView();
     const searchList = useQuery(['searchList', props.match.params['keyword']],
-        () => findMovieListByName.api(1, 8, props.match.params['keyword']),
-        {keepPreviousData: true})
+        () => findMovieListByName.api(1, 8, props.match.params['keyword']),)
 
     useEffect(() => {
         fetchNextResult().then((res) => {
